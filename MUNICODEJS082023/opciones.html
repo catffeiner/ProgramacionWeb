@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validate(){
+            var correo = document.getElementById("correo").value;
+            if (correo === ""){
+                document.getElementById("mensaje").innerText="El correo no puede estar vacio";
+                return false;
+            }else{
+                return true;
+            }
+        }
+    </script>
+    <form action="confirmar.html" onsubmit="return validate()">
+        <h2> Si desea tener acceso a nuestro boletin, ingrese su correo</h2>
+        <label>Correo Electronico</label>
+        <input type="text" id="correo"/> 
+        <input type="submit" value="Enviar" />
+        <br>
+        <div id="mensaje"></div>
+    </form>
+</body>
+</html>

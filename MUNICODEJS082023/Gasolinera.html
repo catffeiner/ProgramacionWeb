@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasolinera</title>
+</head>
+<body>
+    <script>
+        let monto = parseFloat(prompt("Ingrese el monto consumido"));
+        let dia = prompt("Ingrese el día de hoy");
+        let descuento = 0;
+
+        if (monto > 150) {
+            if (dia === "sábado" || dia === "domingo") {
+                descuento = 10;
+            } else {
+                descuento = 5;
+            }
+        }
+
+        if (descuento > 0) {
+            alert('Tiene un descuento del ' +descuento +"%");
+        } else {
+            alert("No tiene descuento.");
+        }
+    </script>
+</body>
+</html>

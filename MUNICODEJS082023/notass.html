@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nota = 0;
+        let suma = 0;
+        let cantidad = 0;
+        let respuesta = "";
+
+        do{
+        nota = parseInt(prompt("Ingrese su nota"));
+        suma = suma + nota;
+        cantidad = cantidad + 1;
+        respuesta = prompt("Desea ingresar otra nota? s/n");
+    } while(respuesta == "s")
+        
+    let promedio = suma / cantidad;
+    document.write("<h2>El promedio es "+promedio+"</h2>")
+    </script>
+</body>
+</html>

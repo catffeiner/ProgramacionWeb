@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo">
+        <form>
+            <div id="titulo"></div>
+            <label>Nombre</label><input type="text" id="nombre"/><br>
+            <label>Edad</label><input type="text" id="edad"/><br>
+            <div id="dinamico">
+
+            </div>
+            <button>Aceptar</button>
+            <div id="pie"></div>
+        </form>
+    </p>
+    <script>
+        var newLabel = document.createElement("label");
+        newLabel.innerText = "eMail";
+        var newInput = document.createElement("input");
+        newInput.type = "text";
+        newInput.style.alignContent = "center";
+        //document.getElementsByTagName("form")[0].appendChild(newInput);   
+        document.getElementById("dinamico").appendChild(newLabel);
+        document.getElementById("dinamico").appendChild(newInput);  
+        // crear un h1 con un titulo 
+        var titulo = document.createElement("h1");
+        titulo.innerText = "Ingreso de Datos ";
+        titulo.style.fontSize = "100px";
+        titulo.style.color = "green";
+        document.getElementById("titulo").appendChild(titulo);
+        // crear un parrafo con quien lo creo
+        var pie = document.createElement("p");
+        pie.innerText = "Creado por Maria - 2023";
+        pie.style.textAlign = "center";
+        pie.style.color = "gray";
+        document.getElementById("pie").appendChild(pie);
+    </script>
+</body>
+</html>

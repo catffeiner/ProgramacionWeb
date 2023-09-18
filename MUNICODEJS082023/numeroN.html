@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sum = 0;
+        let cantidad = 0;
+        let promedio = 0;
+        while(true){
+            let num = (prompt("Ingrese un numero o N para finalizar"));
+            if(num == "N"){
+                break;
+            }
+            num = parseInt(num);
+            if(num){
+            sum += num;
+            cantidad++;
+            promedio = sum / cantidad;
+        }
+    }
+        document.write("La suma total de los numeros es "+sum+" y el promedio es "+promedio)
+    </script>
+</body>
+</html>
