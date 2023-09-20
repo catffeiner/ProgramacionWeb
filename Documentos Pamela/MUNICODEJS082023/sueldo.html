@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio sueldo</title>
+</head>
+<body>
+    <script>
+        let sueldo = parseInt(prompt("Ingrese el monto de sueldo"));
+        let impuesto = "";
+        if (sueldo<=3000){
+            sueldo = 0;
+        alert("No debe abonar impuesto");
+        } else {
+        if (sueldo=>3000)
+            impuesto = sueldo*0.05
+        alert("Debe abonar "+ impuesto)
+        }
+    </script>
+</body>
+</html>

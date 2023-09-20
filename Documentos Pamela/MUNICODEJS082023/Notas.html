@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+</head>
+<body>
+    <script>
+        let nota = parseInt(prompt("Ingrese su nota"));
+        if (nota >= 90 && nota <= 100){
+            nota = "Excelente";
+        }
+        else if (nota >= 75 && nota < 90){
+            nota = "Muy bien";
+        }
+        else if (nota >= 65 && nota < 75){
+            nota = "Bueno";
+        }
+        else if (nota < 65){
+            nota = "Reprobado";
+        }
+        alert(nota);
+    </script>
+</body>
+</html>

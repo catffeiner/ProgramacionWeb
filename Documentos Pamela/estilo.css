@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(247, 204, 204);
+    font-style: italic;
+    line-height: 0cqmax;
+}
+#titulo {
+    color: azure;
+}
+p.especial {
+    color: cadetblue;
+}
+p.texto {
+    color: rgb(60, 52, 175);
+}
+div p {
+    color: aquamarine;
+}
+div h2, div h3 {
+    color: chocolate;
+}
+* {
+    font-size: 30px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de libros</title>
+</head>
+<body>
+    <form id="formlibros" onsubmit="return registroLibros()">
+        <label for="codigo">Codigo del libro:</label>
+        <input type="number" id="codigo" name="codigo"><br><br>
+        <label for="nombre">Nombre del libro:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        <label for="paginas">Cantidad de paginas:</label>
+        <input type="number" id="paginas" name="paginas"><br><br>
+        <label for="precio">Precio Q:</label>
+        <input type="number" id="precio" name="precio"><br><br>
+        <input type="submit" id="registrar">
+    </form>
+    <script>
+        function registroLibros(){
+            var codigo = document.getElementById("codigo").value;
+            var nombre = document.getElementById("nombre").value;
+            var paginas = document.getElementById("paginas").value;
+            var precio = document.getElementById("precio").value;
+            if(codigo === "" || nombre === "" || paginas ==="" || precio ===""){
+                alert("Porfavor poner cantidades validas!");
+                return false;     
+            }
+            if(parseInt(paginas)<=10){
+                alert("La cantidad de paginas debe ser de 10");
+                return false;
+            }
+            if(parseFloat(precio)<=5){
+                alert("El precio debe ser mayor a Q5");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

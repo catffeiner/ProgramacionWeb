@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var tallas = new Array("S", "M", "L", "XL");
+        document.write("Tallas en el indice 0 o primera posición: "+tallas[0]);
+        document.write("<br>Tallas en la ultima posición: "+tallas[3]);
+        document.write("<br> "+tallas[1]);
+        document.write("<br>Tamaño: "+tallas.length);
+
+        var notas = new Array(65, 70, 80, 90, 100);
+        document.write("<br> Tamaño: "+notas.length);
+        document.write("<br>Primer elemento: "+notas[0]);
+
+        document.write("<ul>");
+            let suma = 0;
+            for(let i = 0; i < notas.length; i++){
+                suma = suma + notas[i];
+                document.write("<li>Nota en indice "+i+" = "+notas[i]);
+            }
+            let promedio = suma / notas.length;
+            document.write("<br> El promedio es "+promedio);
+
+            document.write("<br> Array de días ");
+            var dias = new Array(7);
+            for (let i = 0; i < dias.length; i++){
+                dias[i] = "";
+            }
+            dias[0] = "Lunes";
+            dias[6] = "Domingo";
+            document.write("<br> Array de dias v2: ");
+            for (let i= 0; i<dias.length; i++){
+                document.write(dias[i]+", ");
+            }
+           
+            document.write("<h3>Colores</h3>");
+            var colores = new Array();
+            colores[0] = "rojo";
+            colores[10] = "anaranjado";
+            colores[15] = "azul";
+            for (let i = 0; i < colores.length; i++){
+                document.write(colores[i]+", ");
+            }
+
+            var nombres = new Array("Juan", "Carlos", "Antonio");
+            var apellidos = new Array("Lopez", "Juarez", "Menendez");
+            document.write("<br>Nombres: "+nombres);
+            document.write("<br>Apellidos: "+apellidos);
+
+            var nombreApellido = nombres.concat(apellidos);
+            document.write("<br>Junto: "+nombreApellido);
+            document.write("<br> Tam: "+nombreApellido.length);
+            document.write("<br>Nombres: "+nombres);
+            document.write("<br>Apellidos: "+apellidos);
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas de alumnos</title>
+</head>
+<body>
+    <form id="formnotas" onsubmit="return evaluarNotas()">
+        <div>
+            <label for="calificacion1">Alumno 1:</label>
+            <input type="number" id="calificacion1" name="calificacion1"><br><br>
+        </div>
+        <div>
+            <label for="calificacion2">Alumno 2:</label>
+            <input type="number" id="calificacion2" name="calificacion2"><br><br>
+        </div>
+        <div>
+            <label for="calificacion3">Alumno 3:</label>
+            <input type="number" id="calificacion3" name="calificacion3"><br><br>
+        </div>
+        <div>
+            <label for="calificacion4">Alumno 4:</label>
+            <input type="number" id="calificacion4" name="calificacion4"><br><br>
+        </div>
+        <div>
+            <label for="calificacion5">Alumno 5:</label>
+            <input type="number" id="calificacion5" name="calificacion5"><br><br>
+        </div>
+        <div>
+            <label for="calificacion6">Alumno 6:</label>
+            <input type="number" id="calificacion6" name="calificacion6"><br><br>
+        </div>
+        <div>
+            <label for="calificacion7">Alumno 7:</label>
+            <input type="number" id="calificacion7" name="calificacion7"><br><br>
+        </div>
+        <div>
+            <label for="calificacion8">Alumno 8:</label>
+            <input type="number" id="calificacion8" name="calificacion8"><br><br>
+        </div>
+        <div>
+            <label for="calificacion9">Alumno 9:</label>
+            <input type="number" id="calificacion9" name="calificacion9"><br><br>
+        </div>
+        <div>
+            <label for="calificacion10">Alumno 10:</label>
+            <input type="number" id="calificacion10" name="calificacion10"><br><br>
+        </div>
+        <div>
+            <input type="submit" id="registrar">
+        </div>
+    </form>
+    <div id="resultados">
+        <h2>Resultado:</h2>
+        <p>Cantidad de aprobados:<span id="aprobados"></span></p>
+        <p>Cantidad de reprobados:<span id="reprobados"></span></p>
+        <p>Promedio de notas:<span id="promedio"></span></p>
+    </div>
+    <script>
+        function evaluarNotas(){
+            var notas = [];
+            var aprobados = 0;
+            var reprobados = 0;
+            var totalNotas = 0;
+
+            for(var i = 1; i<10; i++){
+                var input = document.getElementById("calificaciones");
+                var nota = parseInt(input.value);
+            if(isNaN(nota) || nota < 0 || nota > 100){
+                alert("La calificacion no es la correcta");
+                input.value = "";
+                input.focus("");
+                return false;
+            }
+            notas.push(nota);
+            
+            if(nota>=65){
+                aprobados++
+            } else{
+                reprobados++
+            }
+            totalNotas += nota;
+        }
+        var promedio = totalNotas/10;
+      }
+      document.getElementById("aprobados").textContent = aprobados;
+      document.getElementById("reprobados").textContent = reprobados;
+      document.getElementById("promedio").textContent = promedio;
+
+      document.getElementById("resultados").style.display="block";
+
+      return false;
+    </script>
+</body>
+</html>

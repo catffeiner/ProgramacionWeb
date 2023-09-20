@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function cargarPagina(){
+        var titulo = document.createElement("h1");
+        titulo.innerText = "Pagina generada";
+        document.getElementById("centro").appendChild(titulo);
+    }
+
+    function verificarDatos(){
+        var usuario = document.getElementById("usuario").value;
+        if (usuario == "admin"){
+            alert("Usuario valido");
+        }else{
+            alert("Usuario no valido");
+        }
+    }
+
+    function mostrarMensaje(){
+        var usuario = document.getElementById("usuario").value;
+        alert("Bienvenid@ "+usuario);
+    }
+</script>
+<body onload="cargarPagina()">
+    <div id = "centro">
+
+    </div>
+    <form>
+        <label>Usuario</label> <input type="text" id="usuario" onfocusout="mostrarMensaje()"/> <br>
+        <label>Password</label> <input type="text" id="password"/> <br>
+        <button onclick="verificarDatos()">Validar</button>
+    </form>
+</body>
+</html>

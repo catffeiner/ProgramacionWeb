@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heladeria</title>
+</head>
+<body>
+    <h2>Si compro 3 helados tengo un 15% de descuento, cada helado vale Q5.00, si se agrega cobertura de chocolate Q1.00 y si se le agrega mania Q1.00. Calcular el monto a pagar por la persona que compra los helados.</h2>
+    <script>
+        let cantidad = parseInt(prompt("Ingrese la cantidad de helados"));
+        let chocolate = prompt("Los helados tienen chocolate? Si/No");
+        let mania = prompt("Los helados tienen mania");
+        let subTotal = cantidad*5.0;
+        let subChocolate = 0;
+        let subMania = 0;
+        if (chocolate == "Si"){
+            subChocolate == cantidad * 1;
+        }
+        if (mania == "Si"){
+            subMania == cantidad * 1;
+        }
+        let total = subTotal + subChocolate + subMania;
+        if (cantidad > 3){
+            total = total - (total*0.15);
+        }
+        document.write("El total a pagar es de Q."+total);
+
+    </script>
+</body>
+</html>

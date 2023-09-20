@@ -1,0 +1,49 @@
+
+.color {
+    /* border: 5px red outset; */
+    border-style: solid;
+    border-color: blue;
+    border-radius: 5px;
+    border-width: 2rem;
+}
+body {
+    background-color: rgb(247, 204, 204);
+}
+#titulo {
+    color: azure;
+}
+p.especial {
+    color: cadetblue;
+}
+p.texto {
+    color: rgb(60, 52, 175);
+}
+div p {
+    color: aquamarine;
+}
+div h2, div h3 {
+    color: chocolate;
+}
+* {
+    font-size: 30px;
+}
+#fondo {
+    background-color: rgba(233, 110, 181, 0.3);
+    height: 200px;
+    /* opacity:0.3; */
+    background-image: url('cat-4772133_1280.jpg');
+    background-size: 100px, 100px;
+    background-repeat: repeat-x;
+    background-position: center center;
+
+}
+
+.margen {
+    background-color: greenyellow;
+    margin: 15px;
+    padding: 30px 15px;
+    border: solid 1px black;
+    height: 100px;
+    width: 50px;
+    overflow: scroll;
+}
