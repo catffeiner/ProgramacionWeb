@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        sessionStorage.setItem("1", "Matematica");
+        sessionStorage.setItem("2", "Programación");
+        document.write("Dato en Storage llave = 1: "+sessionStorage.getItem("1"));
+        document.write("<br>");
+        document.write("Dato en Storage llave = 2: "+sessionStorage.getItem("2"));
+        sessionStorage.setItem("1", "Matematica");
+        document.write("Dato en Storage llave = 1 (2): "+sessionStorage.getItem("1"));
+        document.write("<br>");
+        document.write("Dato en Storage llave = 1 (3): "+sessionStorage.getItem("3"));
+    </script>
+</body>
+</html>
