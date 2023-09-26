@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function guardar(){
+            let codigo = document.getElementById("codigoCurso").value; //llave
+            let nombre = document.getElementById("nombreCurso").value; //valor
+            let cursoExiste = localStorage.getItem(codigo);
+            if (cursoExiste == null){ // no existe
+                if (codigo != "" && nombre != "") {
+                    localStorage.setItem(codigo, nombre);
+                }
+                else {
+                    document.getElementById("mensaje").innerText="ERROR NO PUEDE TENER ESPACIOS VACIOS";
+
+                }
+            } else {
+                document.getElementById("mensaje").innerText="ERROR CODIGO YA EXISTE";
+            }
+         }
+    </script>
+
+        <label>Codigo Curso</label> <input type="text" id="codigoCurso"/><br>
+        <label>Nombre Curso</label> <input type="text" id="nombreCurso"/><br>
+        <button id="guardarBoton" onclick="guardar()">Guardar</button>
+        <div id="mensaje"></div>
+   
+</body>
+</html>
