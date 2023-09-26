@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        localStorage.clear();
+        function guardar()
+        {
+            let carnet = document.getElementById("carnet").value;
+            let nombre = document.getElementById("nombre").value;
+            let grado = document.getElementById("grado").value;
+            let seccion = document.getElementById("seccion").value;
+            
+            let estudiante = [nombre, grado, seccion]; // valor
+
+            //guardar el array
+            localStorage.setItem(carnet, JSON.stringify(estudiante)); // el array va en formato JSON
+
+            let listado = document.getElementById("listado");
+            let li = document.createElement("li");
+            //obtener elemento - el array
+            let datos = JSON.parse(localStorage.getItem(carnet)); // obtengo el string y lo convierto a json
+            li.innerText = datos[0]+"  - "+"Grado "+datos[1]+" Seccion "+datos[2];
+            listado.appendChild(li);
+        }
+    </script>
+    <label>Carnet</label><input id="carnet" type="text"/> <br>
+    <label>Nombre</label><input id="nombre" type="text"/> <br>
+    <label>Grado</label><input id="grado" type="text"/> <br>
+    <label>Sección</label><input id="seccion" type="text"/> <br>
+    <button onclick="guardar()"> Guardar</button>
+    <ul id = "listado"></ul>
+    
+    
+</body>
+</html>
