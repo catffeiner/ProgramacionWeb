@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Righteous&family=Ruluko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 body {
     font-family: 'Poppins', sans-serif;
     background-image: url('69981-Lake-Atitlan.webp');
+    background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     backdrop-filter: blur(2px);
     margin: 0;
     padding: 0;
@@ -34,6 +39,7 @@ nav ul li a {
 
 #content {
     max-width: 800px;
+    text-align: left;
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
