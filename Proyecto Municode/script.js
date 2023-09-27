@@ -9,7 +9,7 @@ function mostrarRegistroSitio() {
     content.innerHTML = ""; // Limpiar contenido existente
     const registroForm = document.createElement("form");
     registroForm.innerHTML = `
-        <h2>Registrar Sitio Turístico</h2>
+        <h2>Sitios Turísticos</h2>
         <label for="pais">País:</label>
         <select id="pais" name="pais">
             <option value="Guatemala">Guatemala</option>
@@ -41,7 +41,7 @@ function mostrarRegistroSitio() {
             sitiosTuristicos.push(sitio);
             alert("Sitio turístico registrado con éxito.");
         } else {
-            alert("Por favor, complete los campos obligatorios (Nombre y Descripción).");
+            alert("Por favor, complete los campos obligatorios.");
         }
     });
 }
