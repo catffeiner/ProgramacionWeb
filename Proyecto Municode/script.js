@@ -46,59 +46,59 @@ function mostrarRegistroSitio() {
     });
 }
 
-// Función para mostrar la página de sitios turísticos
+// Función para mostrar los sitios turísticos en la tabla
 function mostrarSitiosTuristicos() {
-    content.innerHTML = ""; // Limpiar contenido existente
-    const listaSitios = document.createElement("div");
-    listaSitios.innerHTML = "<h2>Lista de Sitios Turísticos</h2>";
+    var sitiosTuristicos = JSON.parse(localStorage.getItem('sitiosTuristicos')) || [];
 
-    // Ordenar sitios turísticos por país
-    sitiosTuristicos.sort((a, b) => a.pais.localeCompare(b.pais));
+    // Acceder al elemento HTML donde se mostrará la información
+    var tablaSitios = document.getElementById('tabla-sitios');
 
-    // Crear una tabla para mostrar los sitios
-    const tabla = document.createElement("table");
-    tabla.innerHTML = `
-        <thead>
-            <tr>
-                <th>País</th>
-                <th>Nombre</th>
-                <th>Horario</th>
-                <th>Likes</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
+    // Limpiar cualquier contenido anterior
+    tablaSitios.innerHTML = '';
+
+    // Crear encabezados de la tabla
+    var encabezados = `
+        <tr>
+            <th class="country">País</th>
+            <th class="name">Nombre del Lugar</th>
+            <th class="actions">Acciones</th>
+            <th class="likes">Likes</th>
+        </tr>
     `;
+    tablaSitios.innerHTML += encabezados;
 
-    // Llenar la tabla con los datos de los sitios turísticos
-    const tbody = tabla.querySelector("tbody");
-    sitiosTuristicos.forEach((sitio, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${sitio.pais}</td>
-            <td>${sitio.nombre}</td>
-            <td>${sitio.horario}</td>
-            <td>${sitio.descripcion}</td>
-            <td>${sitio.likes}</td>
-            <td><button id="like-btn-${index}">Like</button></td>
-        `;
+    // Iterar a través de los sitios turísticos y mostrarlos en la tabla
+    sitiosTuristicos.forEach(function (sitio) {
+        var fila = document.createElement('tr');
+        
+        var paisCelda = document.createElement('td');
+        paisCelda.textContent = sitio.pais;
+        
+        var nombreCelda = document.createElement('td');
+        nombreCelda.textContent = sitio.nombre;
+        
+        var accionesCelda = document.createElement('td');
+        accionesCelda.classList.add('actions'); // Agrega la clase "actions" para los estilos CSS
+        if (sitio.likes === 0) {
+            accionesCelda.innerHTML = `
+                <button onclick="modificarSitio(${sitio.id})" class="btn-modificar">Modificar</button>
+                <button onclick="eliminarSitio(${sitio.id})" class="btn-eliminar">Eliminar</button>
+                <button onclick="verSitio(${sitio.id})" class="btn-ver">Ver</button>
+            `;
+        } else {
+            accionesCelda.textContent = "No disponible";
+        }
+        
+        var likesCelda = document.createElement('td');
+        likesCelda.textContent = sitio.likes;
 
-        // Manejar clic en el botón "Like"
-        const likeBtn = row.querySelector(`#like-btn-${index}`);
-        likeBtn.addEventListener("click", () => {
-            // Incrementar el contador de likes
-            sitio.likes++;
-            likeBtn.textContent = `Like (${sitio.likes})`;
+        fila.appendChild(paisCelda);
+        fila.appendChild(nombreCelda);
+        fila.appendChild(accionesCelda);
+        fila.appendChild(likesCelda);
 
-            // Guardar la información actualizada en el Local Storage
-            localStorage.setItem("sitiosTuristicos", JSON.stringify(sitiosTuristicos));
-        });
-
-        tbody.appendChild(row);
+        tablaSitios.appendChild(fila);
     });
-
-    listaSitios.appendChild(tabla);
-    content.appendChild(listaSitios);
 }
 
 // Cargar datos desde el Local Storage al inicio (opcional)
