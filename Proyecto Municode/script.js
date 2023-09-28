@@ -63,9 +63,7 @@ function mostrarSitiosTuristicos() {
                 <th>País</th>
                 <th>Nombre</th>
                 <th>Horario</th>
-                <th>Descripción</th>
                 <th>Likes</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>

@@ -1,9 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Righteous&family=Ruluko&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-nav{
-    flex-grow: 1;
-    align-items: center;
-    display: flex!important;
-    flex-basis: auto;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('69981-Lake-Atitlan.webp');
+    background-size: cover;
+    backdrop-filter: blur(2px);
+    color: #333; /* Color de texto en la parte superior de la imagen */
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para la navegación */
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el contenido */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 3px; /* Añade espacio de relleno a la izquierda y derecha */
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    vertical-align: middle; /* Centra el texto verticalmente */
+}
+button {
+    background-color: #ffffff;
+    font-family: "poppins";
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+    font-family: "poppins" sans-serif;
 }
