@@ -1,7 +1,6 @@
 // Obtener elementos del DOM comunes a todas las páginas
 const content = document.getElementById("content");
 
-// Datos de sitios turísticos (simulación)
 let sitiosTuristicos = [];
 
 // Función para mostrar la página de registro de sitios
@@ -109,18 +108,14 @@ function mostrarSitiosTuristicos() {
     listaSitios.appendChild(tabla);
     content.appendChild(listaSitios);
 }
-
-// Cargar datos desde el Local Storage al inicio (opcional)
-const storedData = localStorage.getItem("sitiosTuristicos");
-if (storedData) {
-    sitiosTuristicos = JSON.parse(storedData);
-}
-
-// Identificar la página actual y mostrar el contenido correspondiente
 const currentLocation = window.location.pathname;
 if (currentLocation.endsWith("registro.html")) {
     mostrarRegistroSitio();
 } else if (currentLocation.endsWith("mostrar.html")) {
     mostrarSitiosTuristicos();
 }
-localStorage.setItem("sitiosTuristicos",JSON.stringify(sitiosTuristicos));
+const storedData = localStorage.getItem("sitiosTuristicos");
+if (storedData) {
+    sitiosTuristicos = JSON.parse(storedData);
+}
+
