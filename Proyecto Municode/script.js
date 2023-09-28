@@ -46,59 +46,68 @@ function mostrarRegistroSitio() {
     });
 }
 
-// Función para mostrar los sitios turísticos en la tabla
+// Función para mostrar la página de sitios turísticos
 function mostrarSitiosTuristicos() {
-    var sitiosTuristicos = JSON.parse(localStorage.getItem('sitiosTuristicos')) || [];
+    content.innerHTML = ""; // Limpiar contenido existente
+    const listaSitios = document.createElement("div");
+    listaSitios.innerHTML = "<h2>Lista de Sitios Turísticos</h2>";
 
-    // Acceder al elemento HTML donde se mostrará la información
-    var tablaSitios = document.getElementById('tabla-sitios');
-
-    // Limpiar cualquier contenido anterior
-    tablaSitios.innerHTML = '';
-
-    // Crear encabezados de la tabla
-    var encabezados = `
-        <tr>
-            <th class="country">País</th>
-            <th class="name">Nombre del Lugar</th>
-            <th class="actions">Acciones</th>
-            <th class="likes">Likes</th>
-        </tr>
+    // Crear una tabla para mostrar los sitios
+    const tabla = document.createElement("table");
+    tabla.innerHTML = `
+        <thead>
+            <tr>
+                <th>País</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+                <th>Likes</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
     `;
-    tablaSitios.innerHTML += encabezados;
 
-    // Iterar a través de los sitios turísticos y mostrarlos en la tabla
-    sitiosTuristicos.forEach(function (sitio) {
-        var fila = document.createElement('tr');
-        
-        var paisCelda = document.createElement('td');
-        paisCelda.textContent = sitio.pais;
-        
-        var nombreCelda = document.createElement('td');
-        nombreCelda.textContent = sitio.nombre;
-        
-        var accionesCelda = document.createElement('td');
-        accionesCelda.classList.add('actions'); // Agrega la clase "actions" para los estilos CSS
-        if (sitio.likes === 0) {
-            accionesCelda.innerHTML = `
-                <button onclick="modificarSitio(${sitio.id})" class="btn-modificar">Modificar</button>
-                <button onclick="eliminarSitio(${sitio.id})" class="btn-eliminar">Eliminar</button>
-                <button onclick="verSitio(${sitio.id})" class="btn-ver">Ver</button>
-            `;
-        } else {
-            accionesCelda.textContent = "No disponible";
-        }
-        
-        var likesCelda = document.createElement('td');
-        likesCelda.textContent = sitio.likes;
+    // Llenar la tabla con los datos de los sitios turísticos
+    const tbody = tabla.querySelector("tbody");
+    sitiosTuristicos.forEach((sitio, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${sitio.pais}</td>
+            <td>${sitio.nombre}</td>
+            <td>
+                <button id="ver-btn-${index}">Ver</button>
+                <button id="modificar-btn-${index}" ${sitio.likes > 0 ? 'disabled' : ''}>Modificar</button>
+                <button id="eliminar-btn-${index}" ${sitio.likes > 0 ? 'disabled' : ''}>Eliminar</button>
+            </td>
+            <td>${sitio.likes}</td>
+        `;
 
-        fila.appendChild(paisCelda);
-        fila.appendChild(nombreCelda);
-        fila.appendChild(accionesCelda);
-        fila.appendChild(likesCelda);
+        // Manejar clic en el botón "Ver"
+        const verBtn = row.querySelector(`#ver-btn-${index}`);
+        verBtn.addEventListener("click", () => {
+            // Aquí puedes implementar la acción para ver los detalles del sitio
+            // Por ejemplo, mostrar la descripción y otros datos en un modal.
+        });
 
-        tablaSitios.appendChild(fila);
+        // Manejar clic en el botón "Modificar"
+        const modificarBtn = row.querySelector(`#modificar-btn-${index}`);
+        modificarBtn.addEventListener("click", () => {
+            // Aquí puedes implementar la acción para modificar el sitio
+            // Si el sitio tiene likes, la modificación estará deshabilitada.
+        });
+
+        // Manejar clic en el botón "Eliminar"
+        const eliminarBtn = row.querySelector(`#eliminar-btn-${index}`);
+        eliminarBtn.addEventListener("click", () => {
+            // Aquí puedes implementar la acción para eliminar el sitio
+            // Si el sitio tiene likes, la eliminación estará deshabilitada.
+        });
+
+        tbody.appendChild(row);
     });
+
+    listaSitios.appendChild(tabla);
+    content.appendChild(listaSitios);
 }
 
 // Cargar datos desde el Local Storage al inicio (opcional)
@@ -114,3 +123,4 @@ if (currentLocation.endsWith("registro.html")) {
 } else if (currentLocation.endsWith("mostrar.html")) {
     mostrarSitiosTuristicos();
 }
+localStorage.setItem("sitiosTuristicos",JSON.stringify(sitiosTuristicos));
