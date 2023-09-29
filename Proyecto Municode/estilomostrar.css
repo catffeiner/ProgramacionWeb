@@ -39,6 +39,7 @@ nav ul a {
 
 .table-container {
     max-width: 800px;
+    text-align: center;
     margin: 20px auto;
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -53,7 +54,7 @@ table {
 
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border: none;
 }
 
